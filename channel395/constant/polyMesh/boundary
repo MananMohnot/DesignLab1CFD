@@ -1,0 +1,104 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       polyBoundaryMesh;
+    location    "constant/polyMesh";
+    object      boundary;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+10
+(
+    wallBottom
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          40;
+        startFace       3910;
+    }
+    wallTop
+    {
+        type            wall;
+        inGroups        List<word> 1(wall);
+        nFaces          40;
+        startFace       3950;
+    }
+    in1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          25;
+        startFace       3990;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  out1;
+    }
+    out1
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          25;
+        startFace       4015;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  in1;
+    }
+    in2
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          25;
+        startFace       4040;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  out2;
+    }
+    out2
+    {
+        type            cyclic;
+        inGroups        List<word> 1(cyclic);
+        nFaces          25;
+        startFace       4065;
+        matchTolerance  0.0001;
+        transform       unknown;
+        neighbourPatch  in2;
+    }
+    sides1_half0
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          1000;
+        startFace       4090;
+    }
+    sides1_half1
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          1000;
+        startFace       5090;
+    }
+    sides2_half0
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          1000;
+        startFace       6090;
+    }
+    sides2_half1
+    {
+        type            empty;
+        inGroups        List<word> 1(empty);
+        nFaces          1000;
+        startFace       7090;
+    }
+)
+
+// ************************************************************************* //
